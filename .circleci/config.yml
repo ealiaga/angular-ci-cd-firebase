@@ -78,14 +78,14 @@ jobs:
           name: Deploy to Firebase
           command: |
               if [ "${CIRCLE_BRANCH}" == "master" ]; then 
-                  ./node_modules/.bin/firebase deploy deploy --token=$FIREBASE_TOKEN --non-interactive
+                  ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive
               
               elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                  ./node_modules/.bin/firebase use --add angular-ci-cd-develop
+                  ./node_modules/.bin/firebase use --add angular-ci-cd-develop --token=$FIREBASE_TOKEN --non-interactive
                   ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --non-interactive
               
               elif [ ["${CIRCLE_BRANCH}" != "develop"] ] && [ ["${CIRCLE_BRANCH}" != "master"] ]; then 
-                  ./node_modules/.bin/firebase deploy deploy --token=$FIREBASE_TOKEN --non-interactive
+                  ./node_modules/.bin/firebase deploy  --token=$FIREBASE_TOKEN --non-interactive
                  
               else
                   echo "ERROR: not deploy branch ${CIRCLE_BRANCH}"
