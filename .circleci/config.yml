@@ -91,6 +91,7 @@ jobs:
                   exit 1
               fi
             
+            ls -la dist/
 workflows:
     version: 2
     # The build and deploy workflow
