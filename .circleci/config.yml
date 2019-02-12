@@ -77,7 +77,8 @@ jobs:
       - run:
           name: Deploy to Firebase
           command: |
-              if [ "${CIRCLE_BRANCH}" == "master" ]; then 
+              if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                  npm run build-prod
                   ./node_modules/.bin/firebase deploy -P production --token=${FIREBASE_TOKEN} --non-interactive
               
               elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
@@ -85,7 +86,8 @@ jobs:
                   ls -la
                   ./node_modules/.bin/firebase deploy -P develop --token=${FIREBASE_TOKEN} --non-interactive
                   
-              elif [ ["${CIRCLE_BRANCH}" != "develop"] ] && [ ["${CIRCLE_BRANCH}" != "master"] ]; then 
+              elif [ ["${CIRCLE_BRANCH}" != "develop"] ] && [ ["${CIRCLE_BRANCH}" != "master"] ]; then
+                  npm run build-release 
                   ./node_modules/.bin/firebase deploy -P release --token=${FIREBASE_TOKEN} --non-interactive
                  
               else
