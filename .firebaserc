@@ -1,1 +1,7 @@
-{}
+{
+    "projects": {
+        "develop": "angular-ci-cd-develop",
+        "release": "angular-ci-cd-release",
+        "production": "angular-ci-cd-production"
+    }
+}
