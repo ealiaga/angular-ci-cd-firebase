@@ -81,9 +81,9 @@ jobs:
                   ./node_modules/.bin/firebase deploy -P production --token=${FIREBASE_TOKEN} --non-interactive
               
               elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
-                  ./node_modules/.bin/firebase deploy -P develop --token=${FIREBASE_TOKEN} --non-interactive
                   ls -la dist/
-
+                  ./node_modules/.bin/firebase deploy -P develop --token=${FIREBASE_TOKEN} --non-interactive
+                  
               elif [ ["${CIRCLE_BRANCH}" != "develop"] ] && [ ["${CIRCLE_BRANCH}" != "master"] ]; then 
                   ./node_modules/.bin/firebase deploy -P release --token=${FIREBASE_TOKEN} --non-interactive
                  
