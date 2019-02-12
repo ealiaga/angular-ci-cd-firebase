@@ -81,6 +81,7 @@ jobs:
                   ./node_modules/.bin/firebase deploy -P production --token=${FIREBASE_TOKEN} --non-interactive
               
               elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+                  npm run build-develop
                   ls -la
                   ./node_modules/.bin/firebase deploy -P develop --token=${FIREBASE_TOKEN} --non-interactive
                   
