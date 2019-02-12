@@ -82,7 +82,8 @@ jobs:
               
               elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
                   ./node_modules/.bin/firebase deploy -P develop --token=${FIREBASE_TOKEN} --non-interactive
-              
+                  ls -la dist/
+
               elif [ ["${CIRCLE_BRANCH}" != "develop"] ] && [ ["${CIRCLE_BRANCH}" != "master"] ]; then 
                   ./node_modules/.bin/firebase deploy -P release --token=${FIREBASE_TOKEN} --non-interactive
                  
@@ -91,7 +92,7 @@ jobs:
                   exit 1
               fi
             
-            ls -la dist/
+          
 workflows:
     version: 2
     # The build and deploy workflow
